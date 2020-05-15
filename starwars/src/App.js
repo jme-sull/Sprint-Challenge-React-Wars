@@ -24,11 +24,11 @@ const App = () => {
 
    
 
-  const filterCharactersByName = characters => {
-    if (searchTerm.includes(characters)
-    return characters.filter(character => character.name).map(filteredCharacter => { 
-      return filteredCharacter
-    })}
+  // const filterCharactersByName = characters => {
+  //   if (searchTerm.includes(characters)
+  //   return characters.filter(character => character.name).map(filteredCharacter => { 
+  //     return filteredCharacter
+  //   })}
     
      
   
