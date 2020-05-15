@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios';
-
 import Character from './components/Character';
+import { CardGroup} from 'reactstrap';
 
 const App = () => {
 
@@ -33,11 +33,15 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1 className="Header">Characters</h1>
-      { characters.map(character => {
+      <h1 className="Header">Rick and Morty Characters</h1>
+      
+    <CardGroup inverse style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
+        { characters.map(character => {
         return <Character key={character.id} info = {character} />
       })
-    }
+        }
+    </CardGroup>
+      
 
     </div>
   );
