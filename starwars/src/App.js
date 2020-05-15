@@ -7,6 +7,7 @@ import { CardGroup} from 'reactstrap';
 const App = () => {
 
  const [ characters, setCharacters ] = useState ([])
+ const [ searchTerm, setSearchTerm ] = useState('')
 
  useEffect(() => { 
   axios.get(`https://rickandmortyapi.com/api/character/`)
@@ -17,25 +18,39 @@ const App = () => {
     })
     .catch(err => {
       console.log('nope')
-      debugger
     })
   }, [])
+
+
+   
+
+  const filterCharactersByName = characters => {
+    if (searchTerm.includes(characters)
+    return characters.filter(character => character.name).map(filteredCharacter => { 
+      return filteredCharacter
+    })}
+    
+     
   
-
-
-
-  // Try to think through what state you'll need for this app before starting. Then build out
-  // the state properties here.
-
-  // Fetch characters from the API in an effect hook. Remember, anytime you have a 
-  // side effect in a component, you want to think about which state and/or props it should
-  // sync up with, if any.
 
   return (
     <div className="App">
       <h1 className="Header">Rick and Morty Characters</h1>
+
+      <form>
+        <input 
+        onChange= {event =>
+          setSearchTerm(event.target.value)
+        }
+        type='text'
+        placeholder='Search'
+        id='searchInput'
+        />
+      </form>
       
     <CardGroup inverse style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
+        
+        
         { characters.map(character => {
         return <Character key={character.id} info = {character} />
       })
