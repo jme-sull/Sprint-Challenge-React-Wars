@@ -21,14 +21,6 @@ const App = () => {
     })
   }, [])
 
-
-   
-
-  // const filterCharactersByName = characters => {
-  //   if (searchTerm.includes(characters)
-  //   return characters.filter(character => character.name).map(filteredCharacter => { 
-  //     return filteredCharacter
-  //   })}
     
     
   
@@ -48,11 +40,9 @@ const App = () => {
         />
       </form>
       
-    <CardGroup inverse style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
-        
-        
+    <CardGroup inverse style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}> 
         { characters.map(character => {
-          if (character.name.includes(searchTerm))
+          if (character.name.toLowerCase().includes(searchTerm.toLowerCase()))
         return <Character key={character.id} info = {character} />
       })
         }
