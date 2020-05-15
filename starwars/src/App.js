@@ -30,7 +30,7 @@ const App = () => {
   //     return filteredCharacter
   //   })}
     
-     
+    
   
 
   return (
@@ -52,6 +52,7 @@ const App = () => {
         
         
         { characters.map(character => {
+          if (character.name.includes(searchTerm))
         return <Character key={character.id} info = {character} />
       })
         }
